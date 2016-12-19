@@ -3,8 +3,7 @@ resources:
   - name: inspect
     type: git
     source:
-      uri: git@github.com:dgruber/cf-inspect.git
-      branch: master
+      uri: https://github.com/dgruber/cf-inspect.git
 
 jobs:
   - name: building
