@@ -4,6 +4,7 @@ resources:
     type: git
     source:
       uri: https://github.com/dgruber/cf-inspect.git
+      branch: master
 
 jobs:
   - name: building
