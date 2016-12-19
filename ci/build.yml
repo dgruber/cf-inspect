@@ -9,6 +9,7 @@ jobs:
   - name: building
     plan:
       - get: inspect
+        trigger: true
       - task: build
         file: ci/build_inspect.yml
         on_success:
