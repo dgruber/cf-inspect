@@ -1,0 +1,19 @@
+---
+resources:
+  - name: inspect
+    type: git
+    source:
+      uri: git@github.com:dgruber/cf-inspect.git
+      branch: master
+
+jobs:
+  - name: building
+    plan:
+      - get: inspect
+      - task: build
+        file: ci/build_inspect.yml
+  - name: testing
+    plan:
+      - get: inspect
+        passed: [building]
+        file: ci/test_inspect.yml

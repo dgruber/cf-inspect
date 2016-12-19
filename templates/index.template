@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Sample App for Inspecting the Cloud Foundry Environment">
+    <meta name="author" content="DG">
+
+    <title>CF Inspector</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 col-xs-1">
+        </div>
+        <div class="col-sm-8 col-xs-10 main">
+          <h1 class="page-header"></h1>
+          <h2 class="sub-header">CF Basic Application Settings</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td>{{.Name}}</td>
+                </tr>
+                <tr>
+                  <td>Version</td>
+                  <td>{{.Version}}</td>
+                </tr>
+                <tr>
+                  <td>Home</td>
+                  <td>{{.Home}}</td>
+                </tr>
+                <tr>
+                  <td>Appplication URIs</td>
+                  <td>{{.ApplicationURIs}}</td>
+                </tr>
+                <tr>
+                  <td>Port</td>
+                  <td>{{.Port}}</td>
+                </tr>
+                <tr>
+                  <td>Index</td>
+                  <td>{{.Index}}</td>
+                </tr>
+                <tr>
+                  <td>MemoryLimit</td>
+                  <td>{{.MemoryLimit}}</td>
+                </tr>
+                <tr>
+                  <td>Space ID</td>
+                  <td>{{.SpaceID}}</td>
+                </tr>
+                <tr>
+                  <td>Space Name</td>
+                  <td>{{.SpaceName}}</td>
+                </tr>
+                <tr>
+                  <td>Temp Dir</td>
+                  <td>{{.TempDir}}</td>
+                </tr>
+                <tr>
+                  <td>Working Dir</td>
+                  <td>{{.WorkingDir}}</td>
+                </tr>
+                <tr>
+                  <td>User</td>
+                  <td>{{.User}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-2 col-xs-1">
+        </div>
+      </div>
+     
+     <div class="row">
+      <div class="col-sm-2 col-xs-1">
+      </div>
+      <div class="col-sm-8 col-xs-10 main">
+          <h1 class="page-header"></h1>
+          <h2 class="sub-header">CF Services</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+              {{ range $index, $services := .Services }}
+              {{ range $service := $services }}
+                <tr class="active">
+                  <td>Name</td>
+                  <td>{{.Name}}</td>
+                </tr>
+                <tr>
+                  <td>Label</td>
+                  <td>{{.Label}}</td>
+                </tr>
+                <tr>
+                  <td>Plan</td>
+                  <td>{{.Plan}}</td>
+                </tr>
+                <tr>
+                  <td>Tags</td>
+                  <td>{{.Tags}}</td>
+                </tr>
+                {{ range .Credentials }}
+                <tr class="table-danger">
+                  <td>Credential</td>
+                  <td>{{.}}</td>
+                </tr>
+                {{ end}}
+              {{ end }}
+              {{ end }}
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="col-sm-2 col-xs-1">
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
