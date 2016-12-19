@@ -12,7 +12,7 @@ jobs:
       - get: inspect
         trigger: true
       - task: build
-        file: ci/build_inspect.yml
+        file: inspect/ci/build_inspect.yml
         on_success:
           task: test
-          file: ci/test_inspect.yml
+          file: inspect/ci/test_inspect.yml
