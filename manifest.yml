@@ -4,5 +4,4 @@ applications:
   memory: 128M
   host: myhost
   env:
-     GOVERSION: go1.6
      GOPACKAGENAME: github.com/dgruber/cf-inspect
