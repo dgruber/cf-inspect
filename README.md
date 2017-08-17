@@ -1,3 +1,4 @@
 # cf-inspect 
 
-Do not use it. It just shows the app settings within cf including credentials for accessing services.
+It just shows the app settings when running on Cloud Foundry including service credentials.
+
